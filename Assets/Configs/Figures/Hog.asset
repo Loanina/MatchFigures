@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 401d11541cba4fc9bc95c0c4e285d353, type: 3}
-  m_Name: Fox
+  m_Name: Hog
   m_EditorClassIdentifier: 
-  icon: {fileID: 1791904589581890566, guid: 860997c8d45c74946b428d09cdc2b93f, type: 3}
-  shape: {fileID: 8456272588182755374, guid: 5b1ecc67d207cdb49b9472a50305ac89, type: 3}
-  backgroundColor: {r: 1, g: 0.48225677, b: 0.20943397, a: 1}
+  icon: {fileID: 8464660893551633640, guid: a2552dc472f71de44b670a1b08122b9a, type: 3}
+  shape: {fileID: -8453840508285242441, guid: 89c9d02efc0d197448d5d34a98dfa3f5, type: 3}
+  backgroundColor: {r: 0.13669364, g: 0.12412238, b: 0.14716971, a: 1}

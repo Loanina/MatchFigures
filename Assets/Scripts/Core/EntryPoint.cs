@@ -9,7 +9,7 @@ namespace Core
 
         private void Start()
         {
-            figureSpawner.SpawnRandom();
+            StartCoroutine(figureSpawner.SpawnAllFigures());
         }
     }
 }

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 401d11541cba4fc9bc95c0c4e285d353, type: 3}
-  m_Name: Fox
+  m_Name: Deer
   m_EditorClassIdentifier: 
-  icon: {fileID: 1791904589581890566, guid: 860997c8d45c74946b428d09cdc2b93f, type: 3}
-  shape: {fileID: 8456272588182755374, guid: 5b1ecc67d207cdb49b9472a50305ac89, type: 3}
-  backgroundColor: {r: 1, g: 0.48225677, b: 0.20943397, a: 1}
+  icon: {fileID: -2330622252861330509, guid: ac60d90d6b9b0e14bbc00fde2f9afe73, type: 3}
+  shape: {fileID: -2509852870195812983, guid: 7bacb1311fda51249bdbf7280fdf96b8, type: 3}
+  backgroundColor: {r: 0.676706, g: 0.82641506, b: 0.36019218, a: 1}

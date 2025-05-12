@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 401d11541cba4fc9bc95c0c4e285d353, type: 3}
-  m_Name: Fox
+  m_Name: Hippopotamus
   m_EditorClassIdentifier: 
-  icon: {fileID: 1791904589581890566, guid: 860997c8d45c74946b428d09cdc2b93f, type: 3}
-  shape: {fileID: 8456272588182755374, guid: 5b1ecc67d207cdb49b9472a50305ac89, type: 3}
-  backgroundColor: {r: 1, g: 0.48225677, b: 0.20943397, a: 1}
+  icon: {fileID: -238706309869745219, guid: 2bfafd9b68a97d744b780a8bf0834a38, type: 3}
+  shape: {fileID: -1536666565672157649, guid: 10d54280e59b9d945993fdf8d5885f3d, type: 3}
+  backgroundColor: {r: 0.6605805, g: 0.3227696, b: 0.82641506, a: 1}

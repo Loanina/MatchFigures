@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Rabbit
   m_EditorClassIdentifier: 
   icon: {fileID: 5110612511535974256, guid: b0ebf7ef350520445a4f183df4556ae5, type: 3}
-  shape: {fileID: 936936353392363057, guid: abce4792fca9f054ea47b843eeb67b55, type: 3}
-  backgroundColor: {r: 0.57924527, g: 0.9721186, b: 1, a: 1}
+  shape: {fileID: -8025249105021195066, guid: 61211be157b12954ba1c8cfd6723208b, type: 3}
+  backgroundColor: {r: 0.7754717, g: 0.9853112, b: 1, a: 1}

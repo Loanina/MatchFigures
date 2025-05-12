@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: Figure Database
   m_EditorClassIdentifier: 
   figures:
+  - {fileID: 11400000, guid: 248dde4771a909140b7da3796f220322, type: 2}
+  - {fileID: 11400000, guid: 74b0c9130ff92fb4a94ec87eb07f47cd, type: 2}
   - {fileID: 11400000, guid: f8fc74a33e6c961439cb471f396ab912, type: 2}
   - {fileID: 11400000, guid: fde28a84eb402164b86e00ceb2a8b1ba, type: 2}
+  - {fileID: 11400000, guid: 83c1690ef4c5f5f4bae2ea1fa8f4167d, type: 2}
   - {fileID: 11400000, guid: e72032c22f6610a4284df0425d759bcc, type: 2}
   - {fileID: 11400000, guid: 16f3d270514d63b42ac223e11213b5cd, type: 2}
   - {fileID: 11400000, guid: 9536226cdad288946a1218782f35e2ce, type: 2}
+  - {fileID: 11400000, guid: 2a7fa8eb397a8f5439da3daaabc08ed1, type: 2}
