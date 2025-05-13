@@ -31,5 +31,9 @@ namespace Figure
             else
                 collider.pathCount = 0;
         }
+        
+        public Sprite GetShapeSprite() => shapeRenderer.sprite;
+        public Color GetBackgroundColor() => shapeRenderer.color;
+        public Sprite GetIconSprite() => iconRenderer.sprite;
     }
 }

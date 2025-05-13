@@ -7,6 +7,7 @@ namespace Figure
     public class FigureSpawner : MonoBehaviour
     {
         [SerializeField] private FigureDatabase database;
+        [SerializeField] private FigureClickHandler clickHandler;
         [SerializeField] private GameObject figurePrefab;
         [SerializeField] private Transform spawnParent;
         [SerializeField] private float spawnDelay = 0.5f;
@@ -36,8 +37,15 @@ namespace Figure
         private void SpawnFigure(FigureData data)
         {
             var figure = Instantiate(figurePrefab, spawnParent);
-            figure.GetComponent<FigureView>().Setup(data);
+            var view = figure.GetComponent<FigureView>();
+            view.Setup(data);
             spawnedFigures.Add(figure);
+            clickHandler.TrackFigure(view);
+        }
+        
+        public void UnregisterFigure(GameObject figure)
+        {
+            spawnedFigures.Remove(figure);
         }
 
         private void Shuffle<T>(List<T> list)
