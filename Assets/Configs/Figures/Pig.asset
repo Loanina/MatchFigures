@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -9122695006515159614, guid: 355e4f0bc43ce7142846b220d2f02d10, type: 3}
   shape: {fileID: -6682974322963507002, guid: 26cc23db95af3894ba9af23970e9326d, type: 3}
-  backgroundColor: {r: 0.9924528, g: 0.5973442, b: 0.7609107, a: 1}
+  backgroundColor: {r: 1, g: 0.47358483, b: 0.544214, a: 1}

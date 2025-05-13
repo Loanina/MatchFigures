@@ -1,11 +1,22 @@
+using System;
+using Core.Input;
 using UnityEngine;
 
 namespace Figure
 {
-    public class FigureView : MonoBehaviour
+    public class FigureView : MonoBehaviour, IClickable
     {
         [SerializeField] private SpriteRenderer shapeRenderer;
         [SerializeField] private SpriteRenderer iconRenderer;
+        
+        public event Action<FigureView> FigureClicked;
+        
+        public void OnClick()
+        {
+            Debug.Log($"Figure {name} was clicked!");
+            
+            FigureClicked?.Invoke(this);
+        }
 
         public void Setup(FigureData data)
         {
