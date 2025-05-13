@@ -13,8 +13,6 @@ namespace Figure
         
         public void OnClick()
         {
-            Debug.Log($"Figure {name} was clicked!");
-            
             FigureClicked?.Invoke(this);
         }
 
