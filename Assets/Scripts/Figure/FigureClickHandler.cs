@@ -45,5 +45,13 @@ namespace Figure
             foreach (var figure in trackedFigures)
                 figure.FigureClicked -= OnFigureClicked;
         }
+        
+        public void Clear()
+        {
+            foreach (var fig in trackedFigures)
+                fig.FigureClicked -= OnFigureClicked;
+
+            trackedFigures.Clear();
+        }
     }
 }

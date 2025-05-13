@@ -1,11 +1,17 @@
-﻿using UnityEngine;
+﻿using Bar;
+using Figure;
+using UnityEngine;
 
 namespace Core
 {
     public class GameManager : MonoBehaviour
     {
+        [SerializeField] private FigureSpawner spawner;
+        [SerializeField] private FigureClickHandler clickHandler;
+        [SerializeField] private BarManager barManager;
         [SerializeField] private GameObject winLabel;
         [SerializeField] private GameObject loseLabel;
+        private Coroutine spawnCoroutine;
 
         public static GameManager Instance { get; private set; }
 
@@ -17,6 +23,18 @@ namespace Core
                 return;
             }
             Instance = this;
+            RestartGame();
+        }
+
+        public void RestartGame()
+        {
+            ClearGame();
+            if (spawnCoroutine != null)
+            {
+                StopCoroutine(spawnCoroutine);
+                spawnCoroutine = null;
+            }
+            spawnCoroutine = StartCoroutine(spawner.SpawnAllFigures());
         }
 
         public void HandleWin()
@@ -30,11 +48,15 @@ namespace Core
             Debug.Log("Проигрыш!");
             loseLabel.SetActive(true);
         }
-
-        public void Restart()
+        
+        private void ClearGame()
         {
             winLabel.SetActive(false);
             loseLabel.SetActive(false);
+
+            spawner.ClearAllFigures();
+            clickHandler.Clear();
+            barManager.ClearBar();
         }
     }
 }

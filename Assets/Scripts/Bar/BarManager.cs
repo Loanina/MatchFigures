@@ -52,5 +52,16 @@ namespace Bar
             var colorKey = $"{color.r:F2}_{color.g:F2}_{color.b:F2}_{color.a:F2}";
             return $"{shape.name}_{icon.name}_{colorKey}";
         }
+        
+        public void ClearBar()
+        {
+            foreach (var obj in currentFigures)
+            {
+                if (obj != null)
+                    Destroy(obj);
+            }
+            currentFigures.Clear();
+            figureGroups.Clear();
+        }
     }
 }

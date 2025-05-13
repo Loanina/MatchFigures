@@ -56,5 +56,15 @@ namespace Figure
                 (list[i], list[randIndex]) = (list[randIndex], list[i]);
             }
         }
+        
+        public void ClearAllFigures()
+        {
+            foreach (var obj in spawnedFigures)
+            {
+                if (obj != null)
+                    Destroy(obj);
+            }
+            spawnedFigures.Clear();
+        }
     }
 }
