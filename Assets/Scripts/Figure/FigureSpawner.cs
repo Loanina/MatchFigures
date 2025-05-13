@@ -56,20 +56,5 @@ namespace Figure
                 (list[i], list[randIndex]) = (list[randIndex], list[i]);
             }
         }
-        
-        public void SpawnFigure(int index)
-        {
-            if (index < 0 || index >= database.figures.Count) return;
-
-            var data = database.figures[index];
-            var instance = Instantiate(figurePrefab, spawnParent);
-            instance.GetComponent<FigureView>().Setup(data);
-        }
-
-        public void SpawnRandom()
-        {
-            var index = Random.Range(0, database.figures.Count);
-            SpawnFigure(index);
-        }
     }
 }

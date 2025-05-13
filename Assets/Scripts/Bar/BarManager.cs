@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Core;
 using UnityEngine;
 
 namespace Bar
@@ -41,7 +42,7 @@ namespace Bar
             }
             
             if (currentFigures.Count == MaxFigures)
-                Debug.Log("Проигрыш! Бар заполнен.");
+                GameManager.Instance.HandleLose();
 
             return true;
         }

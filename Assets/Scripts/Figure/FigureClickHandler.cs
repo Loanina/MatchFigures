@@ -1,5 +1,6 @@
 ﻿using Bar;
 using System.Collections.Generic;
+using Core;
 using UnityEngine;
 
 namespace Figure
@@ -30,6 +31,13 @@ namespace Figure
             trackedFigures.Remove(figure);
             spawner.UnregisterFigure(figure.gameObject);
             Destroy(figure.gameObject);
+            CheckFiguresExist();
+        }
+
+        private void CheckFiguresExist()
+        {
+            if (trackedFigures.Count != 0) return;
+            GameManager.Instance.HandleWin();
         }
 
         private void OnDestroy()
