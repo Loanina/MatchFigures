@@ -16,6 +16,7 @@ namespace Core
         [SerializeField] private GameObject loseLabel;
         [Range(1, 30), SerializeField] private uint requiredToUnfreeze = 5;
         [SerializeField] private TextMeshProUGUI scoreTMP;
+        [SerializeField] private GameObject frozenFigureEffect;
         private Coroutine spawnCoroutine;
         private int removedFigureCount = 0;
 
@@ -102,5 +103,7 @@ namespace Core
             foreach (var neighbor in neighbors)
                 Destroy(neighbor.gameObject);
         }
+
+        public GameObject GetFrozenEffect() => frozenFigureEffect;
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using Core;
 using Core.Input;
 using Figure.Types;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace Figure
         [SerializeField] private SpriteRenderer iconRenderer;
         private IFigureBehaviour _behaviour;
         private bool isInteractable = true;
+        private GameObject activeEffect;
         
         public event Action<FigureView> FigureClicked;
         
@@ -62,6 +64,21 @@ namespace Figure
         public Sprite GetIconSprite() => iconRenderer.sprite;
 
         public void SetInteractable(bool isInteractable) => this.isInteractable = isInteractable;
-        public void DisableIcon() => iconRenderer.enabled = false;
+        public void SpawnFrozenEffect()
+        {
+            var frozenEffectPrefab = GameManager.Instance.GetFrozenEffect();
+            if (frozenEffectPrefab == null)
+            {
+                Debug.LogWarning("FrozenEffectPrefab is not assigned!");
+                return;
+            }
+            activeEffect = Instantiate(frozenEffectPrefab, transform);
+        }
+
+        public void DestroyFrozenEffect()
+        {
+            if (activeEffect != null)
+                Destroy(activeEffect);
+        }
     }
 }

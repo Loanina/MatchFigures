@@ -7,10 +7,12 @@ namespace Figure.Types
         public void OnSpawn(FigureView view)
         {
             view.SetInteractable(false);
+            view.SpawnFrozenEffect();
+
             GameManager.Instance.OnFigureUnfrozen += () =>
             {
                 view.SetInteractable(true);
-                view.DisableIcon();
+                view.DestroyFrozenEffect();
             };
         }
         

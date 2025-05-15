@@ -15,3 +15,4 @@ MonoBehaviour:
   icon: {fileID: 8687501935328871753, guid: ea006427780d9e8408c6dd813c02e4e1, type: 3}
   shape: {fileID: 8687501935328871753, guid: 8e78ed61b80e53c47b10ff7207a0152f, type: 3}
   backgroundColor: {r: 0.3584906, g: 0.121075094, b: 0.121075094, a: 1}
+  type: 4
