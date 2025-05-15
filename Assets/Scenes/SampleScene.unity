@@ -181,13 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19c752d98fe449a4ac4bc1a3cdf43b65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawner: {fileID: 1705734307}
-  barManager: {fileID: 473273603}
-  winLabel: {fileID: 2097671079}
-  loseLabel: {fileID: 819639532}
   requiredToUnfreeze: 15
-  scoreTMP: {fileID: 2032547359}
-  frozenFigureEffect: {fileID: 1628846726169130907, guid: cf5c54bbeafe4f748a61ec751b05a984, type: 3}
 --- !u!114 &356135565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +197,7 @@ MonoBehaviour:
   gameManager: {fileID: 356135564}
   barManager: {fileID: 473273603}
   figureSpawner: {fileID: 1705734307}
+  uiController: {fileID: 1181822548}
 --- !u!1 &473273601
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +850,7 @@ GameObject:
   - component: {fileID: 1181822546}
   - component: {fileID: 1181822545}
   - component: {fileID: 1181822544}
+  - component: {fileID: 1181822548}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -951,6 +947,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1181822548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181822543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ae940067b54c60af39d44f7f5eeddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winLabel: {fileID: 2097671079}
+  loseLabel: {fileID: 819639532}
+  scoreTMP: {fileID: 2032547359}
 --- !u!1 &1307131048
 GameObject:
   m_ObjectHideFlags: 0

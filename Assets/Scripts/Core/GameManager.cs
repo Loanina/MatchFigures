@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using Bar;
 using Figure;
-using TMPro;
 using UnityEngine;
 
 namespace Core
@@ -11,20 +9,21 @@ namespace Core
     {
         private FigureSpawner spawner;
         private FigureClickHandler clickHandler;
-        public BarManager barManager;
-        [SerializeField] private GameObject winLabel;
-        [SerializeField] private GameObject loseLabel;
+        private BarManager barManager;
+        private GameUIController ui;
+
         [Range(1, 30), SerializeField] private uint requiredToUnfreeze = 5;
-        [SerializeField] private TextMeshProUGUI scoreTMP;
         private Coroutine spawnCoroutine;
-        private int removedFigureCount = 0;
+        private int removedFigureCount;
+
         public event Action OnFigureUnfrozen;
 
-        public void Init(FigureClickHandler clickHandler, FigureSpawner spawner, BarManager barManager)
+        public void Init(FigureClickHandler clickHandler, FigureSpawner spawner, BarManager barManager, GameUIController ui)
         {
             this.clickHandler = clickHandler;
             this.spawner = spawner;
             this.barManager = barManager;
+            this.ui = ui;
         }
 
         private void Awake()
@@ -35,44 +34,45 @@ namespace Core
         public void RestartGame()
         {
             ClearGame();
+
             if (spawnCoroutine != null)
             {
                 StopCoroutine(spawnCoroutine);
-                spawnCoroutine = null;
             }
+
             spawnCoroutine = StartCoroutine(spawner.SpawnAllFigures());
         }
 
         public void OnWin()
         {
             Debug.Log("Победа!");
-            winLabel.SetActive(true);
+            ui.ShowWinLabel();
         }
 
         public void OnLose()
         {
             Debug.Log("Проигрыш!");
-            loseLabel.SetActive(true);
+            ui.ShowLoseLabel();
         }
-        
+
         private void ClearGame()
         {
-            winLabel.SetActive(false);
-            loseLabel.SetActive(false);
+            ui.HideAllLabels();
 
             spawner.ClearAllFigures();
             clickHandler.Clear();
             barManager.ClearBar();
+
             removedFigureCount = 0;
-            scoreTMP.text = "Score: " + removedFigureCount;
+            ui.UpdateScore(removedFigureCount);
         }
-    
+
         public void OnFigureRemoved()
         {
             removedFigureCount++;
-            scoreTMP.text = "Score: " + removedFigureCount;
+            ui.UpdateScore(removedFigureCount);
 
-            if (removedFigureCount >= requiredToUnfreeze)
+            if (removedFigureCount == requiredToUnfreeze)
             {
                 Debug.Log("Unfreezing frozen figures...");
                 OnFigureUnfrozen?.Invoke();

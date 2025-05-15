@@ -46,8 +46,8 @@ namespace Figure
 
         public void SetVisible(bool isVisible)
         {
-            shapeRenderer.enabled = isVisible;
-            iconRenderer.enabled = isVisible;
+            if (shapeRenderer != null) shapeRenderer.enabled = isVisible;
+            if (iconRenderer != null) iconRenderer.enabled = isVisible;
         }
 
         private void SetupVisuals()
