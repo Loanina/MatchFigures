@@ -163,7 +163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shapeRenderer: {fileID: 763498747687382729}
   iconRenderer: {fileID: 4582397359968386208}
-  frozenOverlay: {fileID: 0}
 --- !u!1 &8183741078512840507
 GameObject:
   m_ObjectHideFlags: 0

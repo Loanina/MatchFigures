@@ -72,13 +72,23 @@ namespace Figure
                 Debug.LogWarning("FrozenEffectPrefab is not assigned!");
                 return;
             }
-            activeEffect = Instantiate(frozenEffectPrefab, transform);
+            activeEffect = Instantiate(frozenEffectPrefab, shapeRenderer.transform);
+            SetVisibility(false);
         }
 
         public void DestroyFrozenEffect()
         {
             if (activeEffect != null)
+            {
+                SetVisibility(true);
                 Destroy(activeEffect);
+            }
+        }
+
+        private void SetVisibility(bool isVisible)
+        {
+            shapeRenderer.enabled = isVisible;
+            iconRenderer.enabled = isVisible;
         }
     }
 }

@@ -65,6 +65,8 @@ namespace Core
             spawner.ClearAllFigures();
             clickHandler.Clear();
             barManager.ClearBar();
+            removedFigureCount = 0;
+            scoreTMP.text = "Score: " + removedFigureCount;
         }
     
         public void RegisterFigureRemoved()

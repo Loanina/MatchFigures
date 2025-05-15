@@ -54,10 +54,10 @@ namespace Bar
         
         public void ClearBar()
         {
-            foreach (var obj in currentFigures)
+            foreach (var barFigureView in currentFigures)
             {
-                if (obj != null)
-                    Destroy(obj);
+                if (barFigureView != null)
+                    Destroy(barFigureView.gameObject);
             }
             currentFigures.Clear();
             figureGroups.Clear();
