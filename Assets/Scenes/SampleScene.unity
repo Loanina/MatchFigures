@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 356135560}
   - component: {fileID: 356135565}
   - component: {fileID: 356135562}
-  - component: {fileID: 356135563}
   - component: {fileID: 356135564}
   m_Layer: 0
   m_Name: System
@@ -170,18 +169,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 519420031}
---- !u!114 &356135563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356135559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da82bf8ce01c45abbe718e8b5a9dd069, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &356135564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 1705734307}
-  clickHandler: {fileID: 356135563}
   barManager: {fileID: 473273603}
   winLabel: {fileID: 2097671079}
   loseLabel: {fileID: 819639532}
@@ -215,7 +201,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 356135564}
-  clickHandler: {fileID: 356135563}
   barManager: {fileID: 473273603}
   figureSpawner: {fileID: 1705734307}
 --- !u!1 &473273601
@@ -1646,7 +1631,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 209'
+  m_text: 'Score: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fc93aff49ad3c2e45986eff2f25918fd, type: 2}
   m_sharedMaterial: {fileID: 6934098864450942849, guid: fc93aff49ad3c2e45986eff2f25918fd, type: 2}
@@ -1673,7 +1658,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 63.65
+  m_fontSize: 70.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

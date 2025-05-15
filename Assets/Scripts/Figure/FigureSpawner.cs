@@ -9,7 +9,7 @@ namespace Figure
         [SerializeField] private FigureDatabase database;
         [SerializeField] private GameObject figurePrefab;
         [SerializeField] private Transform spawnParent;
-        [SerializeField] private float spawnDelay = 0.5f;
+        [Range(0,10),SerializeField] private float spawnDelay = 0.5f;
         private FigureClickHandler clickHandler;
         private List<GameObject> spawnedFigures = new();
         

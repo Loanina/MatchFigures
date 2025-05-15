@@ -10,7 +10,7 @@ namespace Core
     public class GameManager : MonoBehaviour, IGameEvents
     {
         [SerializeField] private FigureSpawner spawner;
-        [SerializeField] private FigureClickHandler clickHandler;
+        private FigureClickHandler clickHandler;
         [SerializeField] public BarManager barManager;
         [SerializeField] private GameObject winLabel;
         [SerializeField] private GameObject loseLabel;
@@ -22,6 +22,11 @@ namespace Core
 
         public static GameManager Instance { get; private set; }
         public event Action OnFigureUnfrozen;
+
+        public void Init(FigureClickHandler clickHandler)
+        {
+            this.clickHandler = clickHandler;
+        }
 
         private void Awake()
         {

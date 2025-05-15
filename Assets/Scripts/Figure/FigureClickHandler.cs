@@ -5,14 +5,14 @@ using UnityEngine;
 
 namespace Figure
 {
-    public class FigureClickHandler : MonoBehaviour
+    public class FigureClickHandler
     {
         private BarManager barManager;
         private FigureSpawner spawner;
         private IGameEvents gameEvents;
         private List<FigureView> trackedFigures = new();
 
-        public void Init(BarManager barManager, FigureSpawner spawner, IGameEvents gameEvents)
+        public FigureClickHandler(BarManager barManager, FigureSpawner spawner, IGameEvents gameEvents)
         {
             this.barManager = barManager;
             this.spawner = spawner;
@@ -32,7 +32,7 @@ namespace Figure
 
             trackedFigures.Remove(figure);
             spawner.UnregisterFigure(figure.gameObject);
-            Destroy(figure.gameObject);
+            Object.Destroy(figure.gameObject);
             CheckFiguresExist();
             gameEvents.OnFigureRemoved();
         }
@@ -41,12 +41,6 @@ namespace Figure
         {
             if (trackedFigures.Count != 0) return;
             gameEvents.OnWin();
-        }
-
-        private void OnDestroy()
-        {
-            foreach (var figure in trackedFigures)
-                figure.FigureClicked -= OnFigureClicked;
         }
         
         public void Clear()
