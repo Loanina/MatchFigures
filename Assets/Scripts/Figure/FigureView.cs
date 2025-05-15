@@ -2,6 +2,7 @@ using System;
 using Core;
 using Core.Input;
 using Figure.Types;
+using Figure.Types.Sticky;
 using UnityEngine;
 
 namespace Figure
@@ -90,5 +91,7 @@ namespace Figure
             shapeRenderer.enabled = isVisible;
             iconRenderer.enabled = isVisible;
         }
+        
+        public GameObject GetShapeObject() => shapeRenderer.gameObject;
     }
 }
