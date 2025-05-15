@@ -10,7 +10,5 @@ namespace Figure.Types
             if (rb != null)
                 rb.gravityScale *= 4f;
         }
-
-        public void OnClick(FigureView view) { }
     }
 }

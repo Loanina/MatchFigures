@@ -15,7 +15,5 @@ namespace Figure.Types
                 view.DestroyFrozenEffect();
             };
         }
-        
-        public void OnClick(FigureView view) { }
     }
 }

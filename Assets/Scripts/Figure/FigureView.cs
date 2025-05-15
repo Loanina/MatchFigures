@@ -21,7 +21,6 @@ namespace Figure
         public void OnClick()
         {
             if (!isInteractable) return;
-            _behaviour?.OnClick(this);
             FigureClicked?.Invoke(this);
         }
 

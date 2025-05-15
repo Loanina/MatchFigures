@@ -15,7 +15,5 @@ namespace Figure.Types.Sticky
             var sticky = shapeObject.AddComponent<StickyTrigger>();
             sticky.Init(rb);
         }
-
-        public void OnClick(FigureView view) { }
     }
 }
