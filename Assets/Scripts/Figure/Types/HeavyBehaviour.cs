@@ -1,5 +1,4 @@
-﻿using Bar;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Figure.Types
 {
@@ -9,7 +8,7 @@ namespace Figure.Types
         {
             var rb = view.GetComponentInChildren<Rigidbody2D>();
             if (rb != null)
-                rb.gravityScale *= 2f;
+                rb.gravityScale *= 4f;
         }
 
         public void OnClick(FigureView view) { }

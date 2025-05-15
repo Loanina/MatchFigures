@@ -1,12 +1,15 @@
-﻿namespace Figure.Types
+﻿using UnityEngine;
+
+namespace Figure.Types
 {
     public class StickyBehaviour : IFigureBehaviour
     {
-        public void OnSpawn(FigureView view) { }
-
-        public void OnClick(FigureView view)
+        public void OnSpawn(FigureView view)
         {
-            //поставить enable у  var joint = gameObject.AddComponent<FixedJoint2D>();  ps FigureView
+            var joint = view.gameObject.AddComponent<FixedJoint2D>();
+            joint.enabled = true;
         }
+
+        public void OnClick(FigureView view) { }
     }
 }

@@ -40,15 +40,12 @@ namespace Figure
         
         private void ApplyBehavior(FigureType type)
         {
-            var rb = GetComponentInChildren<Rigidbody2D>();
             switch (type)
             {
                 case FigureType.Heavy:
                     _behaviour = new HeavyBehaviour();
                     break;
                 case FigureType.Sticky:
-                    var joint = gameObject.AddComponent<FixedJoint2D>();
-                    joint.enabled = false;
                     _behaviour = new StickyBehaviour();
                     break;
                 case FigureType.Explosive:
