@@ -9,8 +9,16 @@ namespace Core
         [SerializeField] private GameObject loseLabel;
         [SerializeField] private TextMeshProUGUI scoreTMP;
 
-        public void ShowWinLabel() => winLabel.SetActive(true);
-        public void ShowLoseLabel() => loseLabel.SetActive(true);
+        public void ShowWinLabel()
+        {
+            winLabel.SetActive(true);
+        }
+
+        public void ShowLoseLabel()
+        {
+            loseLabel.SetActive(true);
+        }
+
         public void HideAllLabels()
         {
             winLabel.SetActive(false);

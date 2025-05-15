@@ -7,41 +7,20 @@ namespace Core
 {
     public class GameManager : MonoBehaviour, IGameEvents
     {
-        private FigureSpawner spawner;
-        private FigureClickHandler clickHandler;
+        [Range(1, 30)] [SerializeField] private uint requiredToUnfreeze = 5;
         private BarManager barManager;
-        private GameUIController ui;
-
-        [Range(1, 30), SerializeField] private uint requiredToUnfreeze = 5;
-        private Coroutine spawnCoroutine;
+        private FigureClickHandler clickHandler;
         private int removedFigureCount;
-
-        public event Action OnFigureUnfrozen;
-
-        public void Init(FigureClickHandler clickHandler, FigureSpawner spawner, BarManager barManager, GameUIController ui)
-        {
-            this.clickHandler = clickHandler;
-            this.spawner = spawner;
-            this.barManager = barManager;
-            this.ui = ui;
-        }
+        private Coroutine spawnCoroutine;
+        private FigureSpawner spawner;
+        private GameUIController ui;
 
         private void Awake()
         {
             RestartGame();
         }
 
-        public void RestartGame()
-        {
-            ClearGame();
-
-            if (spawnCoroutine != null)
-            {
-                StopCoroutine(spawnCoroutine);
-            }
-
-            spawnCoroutine = StartCoroutine(spawner.SpawnAllFigures());
-        }
+        public event Action OnFigureUnfrozen;
 
         public void OnWin()
         {
@@ -55,18 +34,6 @@ namespace Core
             ui.ShowLoseLabel();
         }
 
-        private void ClearGame()
-        {
-            ui.HideAllLabels();
-
-            spawner.ClearAllFigures();
-            clickHandler.Clear();
-            barManager.ClearBar();
-
-            removedFigureCount = 0;
-            ui.UpdateScore(removedFigureCount);
-        }
-
         public void OnFigureRemoved()
         {
             removedFigureCount++;
@@ -78,6 +45,36 @@ namespace Core
                 OnFigureUnfrozen?.Invoke();
                 OnFigureUnfrozen = null;
             }
+        }
+
+        public void Init(FigureClickHandler clickHandler, FigureSpawner spawner, BarManager barManager,
+            GameUIController ui)
+        {
+            this.clickHandler = clickHandler;
+            this.spawner = spawner;
+            this.barManager = barManager;
+            this.ui = ui;
+        }
+
+        public void RestartGame()
+        {
+            ClearGame();
+
+            if (spawnCoroutine != null) StopCoroutine(spawnCoroutine);
+
+            spawnCoroutine = StartCoroutine(spawner.SpawnAllFigures());
+        }
+
+        private void ClearGame()
+        {
+            ui.HideAllLabels();
+
+            spawner.ClearAllFigures();
+            clickHandler.Clear();
+            barManager.ClearBar();
+
+            removedFigureCount = 0;
+            ui.UpdateScore(removedFigureCount);
         }
     }
 }

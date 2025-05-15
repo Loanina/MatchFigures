@@ -7,14 +7,13 @@ namespace Bar
 {
     public class BarManager : MonoBehaviour
     {
-        [SerializeField] private Transform barParent;
-        [SerializeField] private BarFigureView barFigurePrefab;
-        private IGameEvents gameEvents;
-        private readonly List<BarFigureView> currentFigures = new();
-        private readonly Dictionary<string, List<BarFigureView>> figureGroups = new();
-
         private const int MaxFigures = 7;
         private const int MatchCount = 3;
+        [SerializeField] private Transform barParent;
+        [SerializeField] private BarFigureView barFigurePrefab;
+        private readonly List<BarFigureView> currentFigures = new();
+        private readonly Dictionary<string, List<BarFigureView>> figureGroups = new();
+        private IGameEvents gameEvents;
 
         public void Init(IGameEvents gameEvents)
         {
@@ -30,7 +29,7 @@ namespace Bar
             barFigure.Setup(data.shape, data.backgroundColor, data.icon);
             currentFigures.Add(barFigure);
 
-            string key = GetKey(data);
+            var key = GetKey(data);
             if (!figureGroups.ContainsKey(key))
                 figureGroups[key] = new List<BarFigureView>();
             figureGroups[key].Add(barFigure);
@@ -76,7 +75,7 @@ namespace Bar
             HashSet<int> indices = new();
             foreach (var fig in matched)
             {
-                int index = currentFigures.IndexOf(fig);
+                var index = currentFigures.IndexOf(fig);
                 if (index == -1) continue;
 
                 indices.Add(index);
@@ -85,7 +84,7 @@ namespace Bar
             }
 
             var result = new List<BarFigureView>();
-            foreach (int i in indices)
+            foreach (var i in indices)
                 if (i >= 0 && i < currentFigures.Count)
                     result.Add(currentFigures[i]);
 
@@ -94,21 +93,34 @@ namespace Bar
 
         private string GetKey(FigureData data)
         {
-            string colorKey = $"{data.backgroundColor.r:F2}_{data.backgroundColor.g:F2}_{data.backgroundColor.b:F2}_{data.backgroundColor.a:F2}";
+            var colorKey =
+                $"{data.backgroundColor.r:F2}_{data.backgroundColor.g:F2}_{data.backgroundColor.b:F2}_{data.backgroundColor.a:F2}";
             return $"{data.shape.name}_{data.icon.name}_{colorKey}";
         }
 
         public void ClearBar()
         {
             foreach (var fig in currentFigures)
-                if (fig != null) Destroy(fig.gameObject);
+                if (fig != null)
+                    Destroy(fig.gameObject);
 
             currentFigures.Clear();
             figureGroups.Clear();
         }
 
-        public BarFigureView GetFigure(int index) => currentFigures[index];
-        public int FigureIndexOf(BarFigureView view) => currentFigures.IndexOf(view);
-        public int GetFigureCount() => currentFigures.Count;
+        public BarFigureView GetFigure(int index)
+        {
+            return currentFigures[index];
+        }
+
+        public int FigureIndexOf(BarFigureView view)
+        {
+            return currentFigures.IndexOf(view);
+        }
+
+        public int GetFigureCount()
+        {
+            return currentFigures.Count;
+        }
     }
 }

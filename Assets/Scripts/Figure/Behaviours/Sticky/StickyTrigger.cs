@@ -4,13 +4,8 @@ namespace Figure.Types.Sticky
 {
     public class StickyTrigger : MonoBehaviour
     {
+        private bool hasStuck;
         private Rigidbody2D ownRb;
-        private bool hasStuck = false;
-
-        public void Init(Rigidbody2D rb)
-        {
-            ownRb = rb;
-        }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -25,6 +20,11 @@ namespace Figure.Types.Sticky
 
             hasStuck = true;
             Destroy(this);
+        }
+
+        public void Init(Rigidbody2D rb)
+        {
+            ownRb = rb;
         }
     }
 }

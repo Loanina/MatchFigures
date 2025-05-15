@@ -10,27 +10,25 @@ namespace Figure
         [SerializeField] private FigureDatabase database;
         [SerializeField] private GameObject figurePrefab;
         [SerializeField] private Transform spawnParent;
-        [Range(0,10),SerializeField] private float spawnDelay = 0.5f;
+        [Range(0, 10)] [SerializeField] private float spawnDelay = 0.5f;
         private FigureClickHandler clickHandler;
-        private List<GameObject> spawnedFigures = new();
         private IGameEvents gameEvents;
-        
+        private readonly List<GameObject> spawnedFigures = new();
+
         public void Init(FigureClickHandler handler, IGameEvents gameEvents)
         {
             clickHandler = handler;
             this.gameEvents = gameEvents;
         }
-        
+
         public IEnumerator SpawnAllFigures()
         {
             var allFigures = new List<FigureData>(database.figures);
             List<FigureData> spawnQueue = new();
-            
+
             foreach (var figure in allFigures)
-            {
                 for (var i = 0; i < 3; i++)
                     spawnQueue.Add(figure);
-            }
 
             Shuffle(spawnQueue);
 
@@ -40,7 +38,7 @@ namespace Figure
                 yield return new WaitForSeconds(spawnDelay);
             }
         }
-        
+
         private void SpawnFigure(FigureData data)
         {
             var figure = Instantiate(figurePrefab, spawnParent);
@@ -49,7 +47,7 @@ namespace Figure
             spawnedFigures.Add(figure);
             clickHandler.TrackFigure(view);
         }
-        
+
         public void UnregisterFigure(GameObject figure)
         {
             spawnedFigures.Remove(figure);
@@ -57,20 +55,18 @@ namespace Figure
 
         private void Shuffle<T>(List<T> list)
         {
-            for (int i = 0; i < list.Count; i++)
+            for (var i = 0; i < list.Count; i++)
             {
-                int randIndex = Random.Range(i, list.Count);
+                var randIndex = Random.Range(i, list.Count);
                 (list[i], list[randIndex]) = (list[randIndex], list[i]);
             }
         }
-        
+
         public void ClearAllFigures()
         {
             foreach (var obj in spawnedFigures)
-            {
                 if (obj != null)
                     Destroy(obj);
-            }
             spawnedFigures.Clear();
         }
     }

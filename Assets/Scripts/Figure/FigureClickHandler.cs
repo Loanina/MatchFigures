@@ -1,5 +1,5 @@
-﻿using Bar;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Bar;
 using Core;
 using UnityEngine;
 
@@ -7,10 +7,10 @@ namespace Figure
 {
     public class FigureClickHandler
     {
-        private BarManager barManager;
-        private FigureSpawner spawner;
-        private IGameEvents gameEvents;
-        private List<FigureView> trackedFigures = new();
+        private readonly BarManager barManager;
+        private readonly IGameEvents gameEvents;
+        private readonly FigureSpawner spawner;
+        private readonly List<FigureView> trackedFigures = new();
 
         public FigureClickHandler(BarManager barManager, FigureSpawner spawner, IGameEvents gameEvents)
         {
@@ -18,7 +18,7 @@ namespace Figure
             this.spawner = spawner;
             this.gameEvents = gameEvents;
         }
-        
+
         public void TrackFigure(FigureView figure)
         {
             trackedFigures.Add(figure);
@@ -42,7 +42,7 @@ namespace Figure
             if (trackedFigures.Count != 0) return;
             gameEvents.OnWin();
         }
-        
+
         public void Clear()
         {
             foreach (var fig in trackedFigures)

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Figure.Types
 {
     public class FrozenBehaviour : IFigureBehaviour
-    { 
+    {
         public void OnSpawn(FigureView view, IGameEvents gameEvents)
         {
             view.SetInteractable(false);

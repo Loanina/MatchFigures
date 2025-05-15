@@ -10,7 +10,7 @@ namespace Figure
         public Color backgroundColor;
         public FigureType type = FigureType.Normal;
     }
-    
+
     public enum FigureType
     {
         Normal,

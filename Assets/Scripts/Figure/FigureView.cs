@@ -14,8 +14,14 @@ namespace Figure
         [SerializeField] private GameObject frozenEffectPrefab;
         private IFigureBehaviour behaviour;
         private FigureData data;
-        private bool isInteractable = true;
         private IGameEvents gameEvents;
+        private bool isInteractable = true;
+
+        public void OnClick()
+        {
+            if (!isInteractable) return;
+            FigureClicked?.Invoke(this);
+        }
 
         public event Action<FigureView> FigureClicked;
 
@@ -31,18 +37,25 @@ namespace Figure
             behaviour?.OnSpawn(this, gameEvents);
         }
 
-        public void OnClick()
+        public FigureData GetFigureData()
         {
-            if (!isInteractable) return;
-            FigureClicked?.Invoke(this);
+            return data;
         }
 
-        public FigureData GetFigureData() => data;
+        public void SetInteractable(bool state)
+        {
+            isInteractable = state;
+        }
 
-        public void SetInteractable(bool state) => isInteractable = state;
+        public GameObject GetShapeObject()
+        {
+            return shapeRenderer.gameObject;
+        }
 
-        public GameObject GetShapeObject() => shapeRenderer.gameObject;
-        public GameObject GetFrozenEffect() => frozenEffectPrefab;
+        public GameObject GetFrozenEffect()
+        {
+            return frozenEffectPrefab;
+        }
 
         public void SetVisible(bool isVisible)
         {

@@ -20,7 +20,7 @@ namespace Core.Input
                 Vector2 mousePos = mainCamera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
                 ProcessClick(mousePos);
             }
-#else 
+#else
        if (UnityEngine.Input.touchCount > 0 && UnityEngine.Input.GetTouch(0).phase == TouchPhase.Began)
         {
             Vector2 touchPos = mainCamera.ScreenToWorldPoint(UnityEngine.Input.GetTouch(0).position);
@@ -35,10 +35,7 @@ namespace Core.Input
             if (hit.collider != null)
             {
                 var clickable = hit.collider.GetComponentInParent<IClickable>();
-                if (clickable != null)
-                {
-                    clickable.OnClick();
-                }
+                if (clickable != null) clickable.OnClick();
             }
         }
     }
