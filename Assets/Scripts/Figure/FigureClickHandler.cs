@@ -7,11 +7,18 @@ namespace Figure
 {
     public class FigureClickHandler : MonoBehaviour
     {
-        [SerializeField] private BarManager barManager;
-        [SerializeField] private FigureSpawner spawner;
-
+        private BarManager barManager;
+        private FigureSpawner spawner;
+        private IGameEvents gameEvents;
         private List<FigureView> trackedFigures = new();
 
+        public void Init(BarManager barManager, FigureSpawner spawner, IGameEvents gameEvents)
+        {
+            this.barManager = barManager;
+            this.spawner = spawner;
+            this.gameEvents = gameEvents;
+        }
+        
         public void TrackFigure(FigureView figure)
         {
             trackedFigures.Add(figure);
@@ -27,13 +34,13 @@ namespace Figure
             spawner.UnregisterFigure(figure.gameObject);
             Destroy(figure.gameObject);
             CheckFiguresExist();
-            GameManager.Instance.RegisterFigureRemoved();
+            gameEvents.OnFigureRemoved();
         }
 
         private void CheckFiguresExist()
         {
             if (trackedFigures.Count != 0) return;
-            GameManager.Instance.HandleWin();
+            gameEvents.OnWin();
         }
 
         private void OnDestroy()

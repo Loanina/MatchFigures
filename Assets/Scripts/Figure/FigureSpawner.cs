@@ -7,12 +7,16 @@ namespace Figure
     public class FigureSpawner : MonoBehaviour
     {
         [SerializeField] private FigureDatabase database;
-        [SerializeField] private FigureClickHandler clickHandler;
         [SerializeField] private GameObject figurePrefab;
         [SerializeField] private Transform spawnParent;
         [SerializeField] private float spawnDelay = 0.5f;
-        
+        private FigureClickHandler clickHandler;
         private List<GameObject> spawnedFigures = new();
+        
+        public void Init(FigureClickHandler handler)
+        {
+            clickHandler = handler;
+        }
         
         public IEnumerator SpawnAllFigures()
         {

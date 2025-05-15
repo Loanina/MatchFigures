@@ -47,7 +47,7 @@ namespace Bar
                 {
                     foreach (var fig in figureGroups[key])
                     {
-                        Destroy(fig.gameObject);
+                        if (fig!=null) Destroy(fig.gameObject);
                         currentFigures.Remove(fig);
                     }
                     figureGroups.Remove(key);

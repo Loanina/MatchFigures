@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Core
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : MonoBehaviour, IGameEvents
     {
         [SerializeField] private FigureSpawner spawner;
         [SerializeField] private FigureClickHandler clickHandler;
@@ -45,7 +45,7 @@ namespace Core
             spawnCoroutine = StartCoroutine(spawner.SpawnAllFigures());
         }
 
-        public void HandleWin()
+        public void OnWin()
         {
             Debug.Log("Победа!");
             winLabel.SetActive(true);
@@ -69,7 +69,7 @@ namespace Core
             scoreTMP.text = "Score: " + removedFigureCount;
         }
     
-        public void RegisterFigureRemoved()
+        public void OnFigureRemoved()
         {
             removedFigureCount++;
             scoreTMP.text = "Score: " + removedFigureCount;

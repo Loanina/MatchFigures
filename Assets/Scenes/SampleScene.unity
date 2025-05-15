@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 356135560}
+  - component: {fileID: 356135565}
   - component: {fileID: 356135562}
   - component: {fileID: 356135563}
   - component: {fileID: 356135564}
@@ -181,8 +182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da82bf8ce01c45abbe718e8b5a9dd069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barManager: {fileID: 473273603}
-  spawner: {fileID: 1705734307}
 --- !u!114 &356135564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +202,22 @@ MonoBehaviour:
   requiredToUnfreeze: 15
   scoreTMP: {fileID: 2032547359}
   frozenFigureEffect: {fileID: 1628846726169130907, guid: cf5c54bbeafe4f748a61ec751b05a984, type: 3}
+--- !u!114 &356135565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356135559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5614cbfd8ac64aa2981de4478643c392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 356135564}
+  clickHandler: {fileID: 356135563}
+  barManager: {fileID: 473273603}
+  figureSpawner: {fileID: 1705734307}
 --- !u!1 &473273601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,7 +1334,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   database: {fileID: 11400000, guid: 6a0d843bdbee4a14bbe95da7095b4639, type: 2}
-  clickHandler: {fileID: 356135563}
   figurePrefab: {fileID: 8142730361197697758, guid: d620ab9c3632f844b8f81e95bc5f39ab, type: 3}
   spawnParent: {fileID: 1705734306}
   spawnDelay: 0.4
