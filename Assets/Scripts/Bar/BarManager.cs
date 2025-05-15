@@ -9,12 +9,17 @@ namespace Bar
     {
         [SerializeField] private Transform barParent;
         [SerializeField] private BarFigureView barFigurePrefab;
-
+        private IGameEvents gameEvents;
         private readonly List<BarFigureView> currentFigures = new();
         private readonly Dictionary<string, List<BarFigureView>> figureGroups = new();
 
         private const int MaxFigures = 7;
         private const int MatchCount = 3;
+
+        public void Init(IGameEvents gameEvents)
+        {
+            this.gameEvents = gameEvents;
+        }
 
         public bool TryAddFigure(FigureData data)
         {
@@ -41,7 +46,7 @@ namespace Bar
             }
 
             if (currentFigures.Count >= MaxFigures)
-                GameManager.Instance.HandleLose();
+                gameEvents?.OnLose();
 
             return true;
         }

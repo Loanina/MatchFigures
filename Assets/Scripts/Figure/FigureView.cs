@@ -1,4 +1,5 @@
 using System;
+using Core;
 using Core.Input;
 using Figure.Types;
 using Figure.Types.Sticky;
@@ -10,22 +11,24 @@ namespace Figure
     {
         [SerializeField] private SpriteRenderer shapeRenderer;
         [SerializeField] private SpriteRenderer iconRenderer;
-
+        [SerializeField] private GameObject frozenEffectPrefab;
         private IFigureBehaviour behaviour;
         private FigureData data;
         private bool isInteractable = true;
+        private IGameEvents gameEvents;
 
         public event Action<FigureView> FigureClicked;
 
-        public void Setup(FigureData data)
+        public void Setup(FigureData data, IGameEvents gameEvents)
         {
+            this.gameEvents = gameEvents;
             this.data = data;
 
             SetupVisuals();
             SetupCollider();
 
             behaviour = CreateBehaviour(data.type);
-            behaviour?.OnSpawn(this);
+            behaviour?.OnSpawn(this, gameEvents);
         }
 
         public void OnClick()
@@ -39,6 +42,7 @@ namespace Figure
         public void SetInteractable(bool state) => isInteractable = state;
 
         public GameObject GetShapeObject() => shapeRenderer.gameObject;
+        public GameObject GetFrozenEffect() => frozenEffectPrefab;
 
         public void SetVisible(bool isVisible)
         {

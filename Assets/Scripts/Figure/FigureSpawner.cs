@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Core;
 using UnityEngine;
 
 namespace Figure
@@ -12,10 +13,12 @@ namespace Figure
         [Range(0,10),SerializeField] private float spawnDelay = 0.5f;
         private FigureClickHandler clickHandler;
         private List<GameObject> spawnedFigures = new();
+        private IGameEvents gameEvents;
         
-        public void Init(FigureClickHandler handler)
+        public void Init(FigureClickHandler handler, IGameEvents gameEvents)
         {
             clickHandler = handler;
+            this.gameEvents = gameEvents;
         }
         
         public IEnumerator SpawnAllFigures()
@@ -42,7 +45,7 @@ namespace Figure
         {
             var figure = Instantiate(figurePrefab, spawnParent);
             var view = figure.GetComponent<FigureView>();
-            view.Setup(data);
+            view.Setup(data, gameEvents);
             spawnedFigures.Add(figure);
             clickHandler.TrackFigure(view);
         }

@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shapeRenderer: {fileID: 763498747687382729}
   iconRenderer: {fileID: 4582397359968386208}
+  frozenEffectPrefab: {fileID: 1628846726169130907, guid: cf5c54bbeafe4f748a61ec751b05a984, type: 3}
 --- !u!1 &8183741078512840507
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,8 +13,9 @@ namespace Core
         private void Awake()
         {
             var clickHandler = new FigureClickHandler(barManager, figureSpawner, gameManager);
-            gameManager.Init(clickHandler);
-            figureSpawner.Init(clickHandler);
+            gameManager.Init(clickHandler, figureSpawner, barManager);
+            barManager.Init(gameManager);
+            figureSpawner.Init(clickHandler, gameManager);
         }
     }
 }

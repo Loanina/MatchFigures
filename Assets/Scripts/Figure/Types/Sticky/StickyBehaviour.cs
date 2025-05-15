@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using Core;
+using UnityEngine;
 
 namespace Figure.Types.Sticky
 {
     public class StickyBehaviour : IFigureBehaviour
     {
-        public void OnSpawn(FigureView view)
+        public void OnSpawn(FigureView view, IGameEvents gameEvents)
         {
             var shapeObject = view.GetShapeObject();
 
