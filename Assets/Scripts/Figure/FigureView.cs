@@ -14,6 +14,7 @@ namespace Figure
         private IFigureBehaviour _behaviour;
         private bool isInteractable = true;
         private GameObject activeEffect;
+        private FigureData data;
         
         public event Action<FigureView> FigureClicked;
         
@@ -26,6 +27,7 @@ namespace Figure
 
         public void Setup(FigureData data)
         {
+            this.data = data;
             shapeRenderer.sprite = data.shape;
             shapeRenderer.color = data.backgroundColor;
 
@@ -59,10 +61,8 @@ namespace Figure
             }
             _behaviour?.OnSpawn(this);
         }
-        
-        public Sprite GetShapeSprite() => shapeRenderer.sprite;
-        public Color GetBackgroundColor() => shapeRenderer.color;
-        public Sprite GetIconSprite() => iconRenderer.sprite;
+
+        public FigureData GetFigureData() => data;
 
         public void SetInteractable(bool isInteractable) => this.isInteractable = isInteractable;
         public void SpawnFrozenEffect()

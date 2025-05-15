@@ -20,12 +20,7 @@ namespace Figure
 
         private void OnFigureClicked(FigureView figure)
         {
-            bool added = barManager.TryAddFigure(
-                figure.GetShapeSprite(), 
-                figure.GetBackgroundColor(), 
-                figure.GetIconSprite()
-            );
-
+            var added = barManager.TryAddFigure(figure.GetFigureData());
             if (!added) return;
 
             trackedFigures.Remove(figure);
