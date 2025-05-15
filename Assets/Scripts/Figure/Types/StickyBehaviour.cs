@@ -6,6 +6,7 @@
 
         public void OnClick(FigureView view)
         {
+            //поставить enable у  var joint = gameObject.AddComponent<FixedJoint2D>();  ps FigureView
         }
     }
 }

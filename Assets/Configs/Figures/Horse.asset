@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 401d11541cba4fc9bc95c0c4e285d353, type: 3}
-  m_Name: Explosive
+  m_Name: Horse
   m_EditorClassIdentifier: 
-  icon: {fileID: -1483665779731714255, guid: e87d6d573f7f8b8489b37929345edf9a, type: 3}
-  shape: {fileID: -8453840508285242441, guid: 89c9d02efc0d197448d5d34a98dfa3f5, type: 3}
-  backgroundColor: {r: 1, g: 0.8876213, b: 0.2245282, a: 1}
-  type: 3
+  icon: {fileID: 7672759098259192623, guid: 416d1898f4c7cae45a8617354d394e2d, type: 3}
+  shape: {fileID: -8245447169010440485, guid: fcc0882b517bd5f4db8711783bedd33e, type: 3}
+  backgroundColor: {r: 0.7433963, g: 0.41280353, b: 0.22301881, a: 1}
+  type: 0
