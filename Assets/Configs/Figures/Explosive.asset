@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 401d11541cba4fc9bc95c0c4e285d353, type: 3}
+  m_Name: Explosive
+  m_EditorClassIdentifier: 
+  icon: {fileID: -1483665779731714255, guid: e87d6d573f7f8b8489b37929345edf9a, type: 3}
+  shape: {fileID: -8453840508285242441, guid: 89c9d02efc0d197448d5d34a98dfa3f5, type: 3}
+  backgroundColor: {r: 1, g: 0.9600314, b: 0, a: 1}
+  type: 3

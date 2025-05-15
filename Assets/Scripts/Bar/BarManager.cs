@@ -7,9 +7,8 @@ namespace Bar
     public class BarManager : MonoBehaviour
     {
         [SerializeField] private Transform barParent;
-        [SerializeField] private GameObject barFigurePrefab;
-
-        private List<GameObject> currentFigures = new();
+        [SerializeField] private BarFigureView barFigurePrefab;
+        private List<BarFigureView> currentFigures = new List<BarFigureView>();
         private Dictionary<string, List<BarFigureView>> figureGroups = new();
         private const int MaxFigures = 7;
         private const int MatchCount = 3;
@@ -22,7 +21,7 @@ namespace Bar
             var obj = Instantiate(barFigurePrefab, barParent);
             var barFigureView = obj.GetComponent<BarFigureView>();
                 barFigureView.Setup(shapeSprite, backgroundColor, iconSprite);
-            currentFigures.Add(obj);
+            currentFigures.Add(barFigureView);
 
             var key = GetFigureKey(shapeSprite, iconSprite, backgroundColor);
 
@@ -36,7 +35,7 @@ namespace Bar
                 foreach (var fig in figureGroups[key])
                 {
                     Destroy(fig.gameObject);
-                    currentFigures.Remove(fig.gameObject);
+                    currentFigures.Remove(fig);
                 }
                 figureGroups.Remove(key);
             }
@@ -63,5 +62,11 @@ namespace Bar
             currentFigures.Clear();
             figureGroups.Clear();
         }
+
+        public int GetCountOfFigures() => currentFigures.Count;
+
+        public BarFigureView GetFigure(int indexOf) => currentFigures[indexOf];
+        public int FigureIndexOf(BarFigureView barFigureView) => currentFigures.IndexOf(barFigureView);
+        public int GetFigureCount() => currentFigures.Count;
     }
 }

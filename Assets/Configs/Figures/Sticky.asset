@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 401d11541cba4fc9bc95c0c4e285d353, type: 3}
+  m_Name: Sticky
+  m_EditorClassIdentifier: 
+  icon: {fileID: 4650668962292711744, guid: 916f180f21d717a4c91e87fc80f74183, type: 3}
+  shape: {fileID: -6682974322963507002, guid: 26cc23db95af3894ba9af23970e9326d, type: 3}
+  backgroundColor: {r: 0, g: 0.93962264, b: 0.041978642, a: 1}
+  type: 2

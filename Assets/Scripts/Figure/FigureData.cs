@@ -8,5 +8,15 @@ namespace Figure
         public Sprite icon;
         public Sprite shape;
         public Color backgroundColor;
+        public FigureType type = FigureType.Normal;
+    }
+    
+    public enum FigureType
+    {
+        Normal,
+        Heavy,
+        Sticky,
+        Explosive,
+        Frozen
     }
 }

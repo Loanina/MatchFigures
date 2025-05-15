@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ac60d90d6b9b0e14bbc00fde2f9afe73
+guid: e464f21916c4c4b498f36124551df614
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2330622252861330509
-    second: "\u0420\u0435\u0441\u0443\u0440\u0441 3_0"
+      213: -223603780624781704
+    second: KG2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,9 +51,9 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1024
+  spritePixelsToUnits: 3300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u0420\u0435\u0441\u0443\u0440\u0441 3_0"
+      name: KG2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 149
-        height: 188
+        width: 348
+        height: 450
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3bb6490c867f7afd0800000000000000
-      internalID: -2330622252861330509
+      spriteID: 87eec65db8995ecf0800000000000000
+      internalID: -223603780624781704
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u0420\u0435\u0441\u0443\u0440\u0441 3_0": -2330622252861330509
+      KG2_0: -223603780624781704
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
