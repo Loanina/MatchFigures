@@ -9,7 +9,6 @@ namespace Figure
     {
         [SerializeField] private SpriteRenderer shapeRenderer;
         [SerializeField] private SpriteRenderer iconRenderer;
-        [SerializeField] public SpriteRenderer frozenRenderer;
         private IFigureBehaviour _behaviour;
         private bool isInteractable = true;
         
@@ -63,5 +62,6 @@ namespace Figure
         public Sprite GetIconSprite() => iconRenderer.sprite;
 
         public void SetInteractable(bool isInteractable) => this.isInteractable = isInteractable;
+        public void DisableIcon() => iconRenderer.enabled = false;
     }
 }

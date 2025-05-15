@@ -14,7 +14,7 @@ namespace Core
         [SerializeField] public BarManager barManager;
         [SerializeField] private GameObject winLabel;
         [SerializeField] private GameObject loseLabel;
-        [SerializeField] private uint requiredToUnfreeze = 5;
+        [Range(1, 30), SerializeField] private uint requiredToUnfreeze = 5;
         [SerializeField] private TextMeshProUGUI scoreTMP;
         private Coroutine spawnCoroutine;
         private int removedFigureCount = 0;
@@ -65,7 +65,6 @@ namespace Core
             clickHandler.Clear();
             barManager.ClearBar();
         }
-        
     
         public void RegisterFigureRemoved()
         {

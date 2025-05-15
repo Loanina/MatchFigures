@@ -200,7 +200,7 @@ MonoBehaviour:
   barManager: {fileID: 473273603}
   winLabel: {fileID: 2097671079}
   loseLabel: {fileID: 819639532}
-  requiredToUnfreeze: 5
+  requiredToUnfreeze: 15
   scoreTMP: {fileID: 2032547359}
 --- !u!1 &473273601
 GameObject:

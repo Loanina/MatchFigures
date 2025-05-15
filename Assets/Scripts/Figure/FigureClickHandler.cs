@@ -32,6 +32,7 @@ namespace Figure
             spawner.UnregisterFigure(figure.gameObject);
             Destroy(figure.gameObject);
             CheckFiguresExist();
+            GameManager.Instance.RegisterFigureRemoved();
         }
 
         private void CheckFiguresExist()
