@@ -56,8 +56,19 @@ namespace Bar
             foreach (var fig in figures)
             {
                 currentFigures.Remove(fig);
-                Destroy(fig.gameObject);
+                if (fig != null) Destroy(fig.gameObject);
+
+                foreach (var kvp in figureGroups)
+                    kvp.Value.Remove(fig);
             }
+
+            var emptyKeys = new List<string>();
+            foreach (var kvp in figureGroups)
+                if (kvp.Value.Count == 0)
+                    emptyKeys.Add(kvp.Key);
+
+            foreach (var key in emptyKeys)
+                figureGroups.Remove(key);
         }
 
         private List<BarFigureView> GetFiguresWithNeighbors(List<BarFigureView> matched)

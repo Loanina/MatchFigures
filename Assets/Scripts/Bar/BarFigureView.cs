@@ -17,11 +17,5 @@ namespace Bar
             shape.color = backgroundColor;
             icon.sprite = iconSprite;
         }
-
-        public void Clear()
-        {
-            shape.sprite = null;
-            icon.sprite = null;
-        }
     }
 }
