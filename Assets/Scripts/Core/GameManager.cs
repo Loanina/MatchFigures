@@ -69,6 +69,7 @@ namespace Core
         public void RegisterFigureRemoved()
         {
             removedFigureCount++;
+            scoreTMP.text = "Score: " + removedFigureCount;
 
             if (removedFigureCount >= requiredToUnfreeze)
             {
